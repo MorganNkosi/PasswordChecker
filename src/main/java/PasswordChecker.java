@@ -45,7 +45,7 @@ public class PasswordChecker {
 
                     if(passwordIsOk(password))
                     {
-                        System.out.println("checkPass is good");
+                        System.out.println("Password meets at least 3 conditions");
 
 
                         if (hasSpecial(password))
