@@ -9,7 +9,7 @@ public class PasswordChecker {
     {
         Scanner keyIn = new Scanner(System.in);
        //System.out.println("Enter password");
-        String pass = " ";
+        String pass = "HelloW0rld!";
         System.out.println(passwordIsValid(pass));
 
     }
