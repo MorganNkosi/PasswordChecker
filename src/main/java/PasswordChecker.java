@@ -5,21 +5,12 @@ import java.util.regex.Pattern;
 
 public class PasswordChecker {
 
-    public static void main(String[] args)
+    public static boolean hasSpecial(String password) //method to check special characters
     {
-        Scanner keyIn = new Scanner(System.in);
-       //System.out.println("Enter password");
-        String pass = "HelloW0rld!";
-        System.out.println(passwordIsValid(pass));
-
-    }
-
-    public static boolean hasSpecial(String password)
-    {
-        Pattern sPattern = Pattern.compile("[a-zA-Z0-9]*");
+        Pattern sPattern = Pattern.compile("[a-zA-Z0-9]*"); //regex pattern
         Matcher aMatcher = sPattern.matcher(password);
 
-        if (!aMatcher.matches())
+        if (!aMatcher.matches()) //checks for special character in string
         {
             return true;
         }
@@ -28,57 +19,44 @@ public class PasswordChecker {
             System.out.println("password should have at least one special character");
             return false;
         }
-
-
     }
 
     public static boolean passwordIsValid(String password)
     {
-
-
-            if (password != " ")
+            if (password != " ")    //ckecks for empty string
             {
-                if(password.length() > 7)
+                if(password.length() > 7)   //checks for length
                 {
                     System.out.println("length is ok");
 
-
-                    if(passwordIsOk(password))
+                    if(passwordIsOk(password)) //meets at least 3 conditions
                     {
                         System.out.println("Password meets at least 3 conditions");
 
-
-                        if (hasSpecial(password))
+                        if (hasSpecial(password))//check special character
                         {
                             System.out.println("password is strong and valid!!");
                             return true;
-                        }
-                        else
+                        }else
                         {
                             return false;
                         }
-                    }
-                    else
+                    }else
                     {
                         return false;
                     }
-                }
-                else
+                }else
                 {
                     System.out.println("password should be longer than 8 characters");
                     return false;
                 }
-            }
-            else
+            }else
             {
                 System.out.println("Password  should exist");
                 return false;
-
             }
-
-
     }
-
+    //method checks if password meets at least 3 conditions
     public static boolean passwordIsOk(String password)
     {
         boolean hasNum = false, hasCap = false, hasLow = false;
@@ -86,23 +64,24 @@ public class PasswordChecker {
         for (int i = 0; i < password.length(); i++)
         {
             c = password.charAt(i);
-            if(Character.isDigit(c))
+            if(Character.isDigit(c)) //checks for digits
             {
                 hasNum = true;
             }
-            if (Character.isUpperCase(c))
+            if (Character.isUpperCase(c)) //checks for upper case
             {
                 hasCap = true;
             }
-            if (Character.isLowerCase(c))
+            if (Character.isLowerCase(c)) //checks for lower case
             {
                 hasLow = true;
             }
-            if(hasNum && hasCap && hasLow)
+            if(hasNum && hasCap && hasLow) //checks for all three conditions
             {
                 return true;
             }
         }
+        //outputs depending on condition not met
         if(hasNum == false)
         {
             System.out.println("password should have at least one digit");
@@ -115,7 +94,6 @@ public class PasswordChecker {
         {
             System.out.println("password should have at least one upper case letter");
         }
-
         return false;
     }
 }
