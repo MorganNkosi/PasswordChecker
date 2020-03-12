@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -23,7 +21,7 @@ public class PasswordChecker {
 
     public static boolean passwordIsValid(String password)
     {
-            if (password != " ")    //ckecks for empty string
+            if (password != " ")    //checks for empty string
             {
                 if(password.length() > 7)   //checks for length
                 {
